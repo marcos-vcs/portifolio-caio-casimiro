@@ -1,0 +1,326 @@
+/* Variáveis de tema */
+:root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --muted: #f8f9fa;
+    --muted-foreground: #6c757d;
+    --card-bg: #ffffff;
+    --card-foreground: #000000;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-lg: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --card-bg: #1e293b;
+    --card-foreground: #f8fafc;
+    --blue-600: #60a5fa;
+    --blue-700: #3b82f6;
+    --blue-400: #3b82f6;
+    --blue-500: #60a5fa;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-lg: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Seção Livro */
+.book-section {
+    padding: 5rem 0;
+    background-color: var(--background);
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+}
+
+/* Cabeçalho da seção */
+.book-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.book-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.book-subtitle {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+    max-width: 768px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Container do card */
+.book-card-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* Card do livro */
+.book-card {
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px var(--shadow-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px var(--shadow-lg);
+}
+
+/* Seção da imagem */
+.book-image-section {
+    position: relative;
+    height: 16rem;
+    overflow: hidden;
+}
+
+.book-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-image {
+    transform: scale(1.05);
+}
+
+.book-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+
+/* Conteúdo do livro */
+.book-content {
+    padding: 2rem;
+}
+
+/* Ícone do livro */
+.book-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--blue-600);
+    margin-bottom: 1rem;
+}
+
+.book-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2;
+}
+
+/* Nome do livro */
+.book-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--card-foreground);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+/* Descrição */
+.book-description {
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Lista de características */
+.book-features {
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--card-foreground);
+    font-size: 0.95rem;
+}
+
+.feature-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--blue-600);
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Botão de compra */
+.buy-button {
+    width: 100%;
+    background-color: var(--blue-600);
+    color: white;
+    border: none;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.buy-button:hover {
+    background-color: var(--blue-700);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.buy-button:active {
+    transform: translateY(0);
+}
+
+/* Efeito de ripple no botão */
+.buy-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.buy-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para desktop */
+@media (min-width: 768px) {
+    .book-card {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .book-image-section {
+        height: auto;
+    }
+    
+    .book-content {
+        padding: 3rem;
+    }
+    
+    .book-title {
+        font-size: 3rem;
+    }
+    
+    .book-name {
+        font-size: 1.75rem;
+    }
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    .book-section {
+        padding: 3rem 0;
+    }
+    
+    .book-title {
+        font-size: 2rem;
+    }
+    
+    .book-subtitle {
+        font-size: 1.125rem;
+        padding: 0 1rem;
+    }
+    
+    .book-header {
+        margin-bottom: 2rem;
+    }
+    
+    .book-content {
+        padding: 1.5rem;
+    }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+    .book-section {
+        padding: 2rem 0;
+    }
+    
+    .book-title {
+        font-size: 1.75rem;
+    }
+    
+    .book-subtitle {
+        font-size: 1rem;
+    }
+    
+    .book-name {
+        font-size: 1.25rem;
+    }
+    
+    .book-description {
+        font-size: 0.9rem;
+    }
+    
+    .feature-item {
+        font-size: 0.875rem;
+    }
+    
+    .buy-button {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+}
