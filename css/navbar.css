@@ -166,7 +166,7 @@ body {
 
 /* Hamburger animation */
 .hamburger.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(0.35rem, 0.35rem);
+    transform: rotate(45deg) translate(0.30rem, 0.30rem);
 }
 
 .hamburger.active .hamburger-line:nth-child(2) {
@@ -174,7 +174,7 @@ body {
 }
 
 .hamburger.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+    transform: rotate(-45deg) translate(0.25rem, -0.25rem);
 }
 
 /* Mobile Navigation */

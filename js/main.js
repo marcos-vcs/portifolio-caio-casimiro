@@ -132,6 +132,58 @@ window.addEventListener('scroll', () => {
     }
 });
 
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Funções globais para redes sociais
+function openInstagram() {
+    const button = document.querySelector('.instagram-button');
+    
+    // Efeito visual
+    if (button) {
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 150);
+    }
+    
+    // Abrir Instagram
+    window.open('https://www.instagram.com/neuropp.casimirodequeiroz', '_blank');
+}
+
+function openWhatsApp() {
+    const button = document.querySelector('.whatsapp-button');
+    
+    // Efeito visual
+    if (button) {
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 150);
+    }
+    
+    // Abrir WhatsApp
+    window.open('https://wa.me/5562984220580?text=Ol%C3%A1%2C%20Dr.%20Caio%20Casimiro!%20Acessei%20sua%20p%C3%A1gina%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20cl%C3%ADnicos%20em%20neuroci%C3%AAncia%2C%20psican%C3%A1lise%20ou%20terapias%20integrativas.%20Voc%C3%AA%20pode%20me%20ajudar%3F', '_blank');
+}
+
+footerYear();
+function footerYear() {
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.querySelector('.copyright');
+    console.log(yearElement);
+    
+    if (yearElement) {
+        yearElement.textContent = yearElement.textContent.replace('{atualYear}', currentYear);
+    }
+}
+
 /* 
 
 // Theme Management
@@ -826,36 +878,7 @@ class ContactFooterManager {
     }
 }
 
-// Funções globais para redes sociais
-function openInstagram() {
-    const button = document.querySelector('.instagram-button');
-    
-    // Efeito visual
-    if (button) {
-        button.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 150);
-    }
-    
-    // Abrir Instagram
-    window.open('https://instagram.com/caiocasimiro', '_blank');
-}
 
-function openWhatsApp() {
-    const button = document.querySelector('.whatsapp-button');
-    
-    // Efeito visual
-    if (button) {
-        button.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 150);
-    }
-    
-    // Abrir WhatsApp
-    window.open('https://wa.me/5511999999999', '_blank');
-}
 
 // Gerenciamento de tema
 class ThemeManager {
